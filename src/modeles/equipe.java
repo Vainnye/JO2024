@@ -1,6 +1,6 @@
 package modeles;
 
-public class equipe {
+public class Equipe {
 	
 	int numEquipe;
 	int nbPersonnes;
