@@ -13,11 +13,27 @@ public class Compte {
 	private String dateNaissanceUtilisateur;
 	private boolean gestionnaire;
 	private boolean administrateur;
+	
+	
+	//----------------------------------------------------
+	//---------GETTERS------------------------------------
+	//----------------------------------------------------
+	public int getNumCompte() {return numCompte;}
+	public String getNomUtilisateur() {return nomUtilisateur;}
+	public String getPrenomUtilisateur() {return prenomUtilisateur;}
+	public String getAddressMailUtilisateur() {return addressMailUtilisateur;}
+	public String getTelephoneUtilisateur() {return telephoneUtilisateur;}
+	public String getApparence() {return Apparence;}
+	public boolean isAutorisationLocalisation() {return autorisationLocalisation;}
+	public boolean isAutorisationNotification() {return autorisationNotification;}
+	public String getDateNaissanceUtilisateur() {return dateNaissanceUtilisateur;}
+	public boolean isGestionnaire() {return gestionnaire;}
+	public boolean isAdministrateur() {return administrateur;}
+
 
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 }
