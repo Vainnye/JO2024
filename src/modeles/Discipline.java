@@ -27,9 +27,17 @@ public class Discipline {
 		this.nomDiscipline = nomDiscipline;
 	}
 	
+	//----------------------------------------------------
+    //---------TO_STRING------------------------------------
+    //----------------------------------------------------
+	@Override
+	public String toString() {
+		return "Discipline [numDiscipline=" + numDiscipline + ", nomDiscipline=" + nomDiscipline + "]";
+	}
 	
 	public static void main(String[] args) {
 
 	}
+	
 
 }

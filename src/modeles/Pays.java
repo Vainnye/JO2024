@@ -1,5 +1,7 @@
 package modeles;
 
+import java.util.Arrays;
+
 public class Pays {
 	
 	//----------------------------------------------------
@@ -38,6 +40,15 @@ public class Pays {
 		listeEquipe = new Equipe [NBEQUIPEMAX];
 	}
 	
+	//----------------------------------------------------
+    //---------TO_STRING------------------------------------
+    //----------------------------------------------------
+	@Override
+	public String toString() {
+		return "Pays [numPays=" + numPays + ", nom du Pays=" + nomPays + ", nombre de médaille d'Or=" + nbOr + ", nombre de médaille d'Argent=" + nbArgent
+				+ ", nombre de médaille de Bronze=" + nbBronze + ", nombre d'Equipe=" + nbEquipe
+				+ "]";
+	}
 	
 	//----------------------------------------------------
     //---------METHODES PUBLIQUES------------------------------------

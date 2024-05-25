@@ -1,5 +1,7 @@
 package modeles;
 
+import java.util.Arrays;
+
 public class Epreuve {
 
 	//----------------------------------------------------
@@ -44,8 +46,22 @@ public class Epreuve {
 		Resultat r = new Resultat(numEpreuve,troisEquipeGagnante);
 	}
 	
+	
+	//----------------------------------------------------
+    //---------TO_STRING------------------------------------
+    //----------------------------------------------------
+	@Override
+	public String toString() {
+		return "Epreuve [numEpreuve=" + numEpreuve + ", dateEpreuve=" + dateEpreuve + ", dateDebut=" + dateDebut
+				+ ", dateFin=" + dateFin + ", dureeHeure=" + dureeHeure + ", disciplineEpreuve=" + disciplineEpreuve.getNomDiscipline()
+				+ ", listeEquipe=" + Arrays.toString(listeEquipe) + ", troisEquipeGagnante="
+				+ Arrays.toString(troisEquipeGagnante) + "]";
+	}
+	
+	
 	public static void main(String[] args) {
 
 	}
+	
 
 }

@@ -56,6 +56,32 @@ public class Compte {
 		this.administrateur = administrateur;
 	}
 	
+	//----------------------------------------------------
+    //---------TO_STRING------------------------------------
+    //----------------------------------------------------
+	@Override
+	public String toString() {
+		String notification;
+		String localisation;
+		String gestionnaireA;
+		String administrateurA;
+		if(autorisationNotification)notification="oui";
+		else notification="non";
+		if(autorisationLocalisation)localisation="oui";
+		else localisation="non";
+		if(gestionnaire)gestionnaireA="oui";
+		else gestionnaireA="non";
+		if(administrateur)administrateurA="oui";
+		else administrateurA="non";
+		
+		return "Compte [numCompte=" + numCompte + ", nomUtilisateur=" + nomUtilisateur + ", prenomUtilisateur="
+				+ prenomUtilisateur + ", addressMailUtilisateur=" + addressMailUtilisateur + ", telephoneUtilisateur="
+				+ telephoneUtilisateur + ", Apparence=" + Apparence + ", autorisationLocalisation="
+				+ localisation + ", autorisationNotification=" + notification
+				+ ", dateNaissanceUtilisateur=" + dateNaissanceUtilisateur + ", gestionnaire=" + gestionnaireA
+				+ ", administrateur=" + administrateurA + "]";
+	}
+	
 	
 	//----------------------------------------------------
     //---------METHODES PUBLIQUES------------------------------------

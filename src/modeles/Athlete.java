@@ -53,6 +53,17 @@ public class Athlete {
 	}
     
 	//----------------------------------------------------
+    //---------TO_STRING------------------------------------
+    //----------------------------------------------------
+	@Override
+	public String toString() {
+		return "Athlete [numAthlete=" + numAthlete + ", prenomAthlete=" + prenomAthlete + ", nomAthlete=" + nomAthlete
+				+ ", dateDeNaissance=" + dateDeNaissance + ", EquipeAthlete=" + EquipeAthlete.getNomEquipe() + ", PaysAthlete="
+				+ PaysAthlete.getNomPays() + "]";
+	}
+	
+	
+	//----------------------------------------------------
     //---------METHODES PUBLIQUES------------------------------------
     //----------------------------------------------------
 
@@ -60,5 +71,6 @@ public class Athlete {
 	public static void main(String[] args) {
 
 	}
+	
 
 }
