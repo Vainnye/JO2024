@@ -7,8 +7,10 @@ public class Pays {
 	//----------------------------------------------------
     //---------ATTRIBUTS------------------------------------
     //----------------------------------------------------
+	private static int compteur=0;
 	private int numPays;
 	private String nomPays;
+	private String codePays;
 	private int nbOr;
 	private int nbArgent;
 	private int nbBronze;
@@ -25,19 +27,24 @@ public class Pays {
 	public int getNbOr() {return nbOr;}
 	public int getNbArgent() {return nbArgent;}
 	public int getNbBronze() {return nbBronze;}
+	public String getCodePays() {return codePays;}
+	public int getNbEquipe() {return nbEquipe;}
+	public Equipe[] getListeEquipe() {return listeEquipe;}
 	
 	
 	//----------------------------------------------------
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
-	public Pays(int numPays, String nomPays) {
+	public Pays(String nomPays, String codePays) {
 		super();
-		this.numPays = numPays;
+		this.numPays=compteur;
 		this.nomPays = nomPays;
+		this.codePays = codePays;
 		nbOr=0;
 		nbArgent=0;
 		nbBronze=0;
 		listeEquipe = new Equipe [NBEQUIPEMAX];
+		compteur++;
 	}
 	
 	//----------------------------------------------------
@@ -72,6 +79,13 @@ public class Pays {
 	public void delBronze() {nbBronze--;}
 
 	public static void main(String[] args) {
+		Pays France = new Pays("France","fr");
+		Pays Espagne = new Pays("Espagne","fr");
+		Pays Italie = new Pays("Italie","fr");
+		
+		System.out.println(France);
+		System.out.println(Espagne);
+		System.out.println(Italie);
 	}
 
 }

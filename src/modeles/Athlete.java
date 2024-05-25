@@ -5,6 +5,7 @@ public class Athlete {
 	//----------------------------------------------------
     //---------ATTRIBUTS------------------------------------
     //----------------------------------------------------
+	private static int compteur=0;
 	private int numAthlete;
 	private String prenomAthlete;
 	private String nomAthlete;
@@ -33,23 +34,24 @@ public class Athlete {
 	//----------------------------------------------------
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
-	public Athlete(int numAthlete, String prenomAthlete, String nomAthlete, String dateDeNaissance,Equipe equipeAthlete, Pays paysAthlete) {
+	public Athlete(String prenomAthlete, String nomAthlete, String dateDeNaissance,Equipe equipeAthlete, Pays paysAthlete) {
 		super();
-		this.numAthlete = numAthlete;
+		this.numAthlete=compteur;
 		this.prenomAthlete = prenomAthlete;
 		this.nomAthlete = nomAthlete;
 		this.dateDeNaissance = dateDeNaissance;
 		EquipeAthlete = equipeAthlete;
 		PaysAthlete = paysAthlete;
+		compteur++;
 	}
 	
-	public Athlete(int numAthlete, String prenomAthlete, String nomAthlete, String dateDeNaissance, Pays paysAthlete) {
+	public Athlete(String prenomAthlete, String nomAthlete, String dateDeNaissance, Pays paysAthlete) {
 		super();
-		this.numAthlete = numAthlete;
 		this.prenomAthlete = prenomAthlete;
 		this.nomAthlete = nomAthlete;
 		this.dateDeNaissance = dateDeNaissance;
 		PaysAthlete = paysAthlete;
+		numAthlete++;
 	}
     
 	//----------------------------------------------------

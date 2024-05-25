@@ -5,6 +5,7 @@ public class Discipline {
 	//----------------------------------------------------
     //---------ATTRIBUTS------------------------------------
     //----------------------------------------------------
+	private static int compteur=0;
 	private int numDiscipline;
 	private String nomDiscipline;
 	
@@ -21,10 +22,11 @@ public class Discipline {
 	//----------------------------------------------------
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
-	public Discipline(int numDiscipline, String nomDiscipline) {
+	public Discipline(String nomDiscipline) {
 		super();
-		this.numDiscipline = numDiscipline;
+		this.numDiscipline=compteur;
 		this.nomDiscipline = nomDiscipline;
+		compteur++;
 	}
 	
 	//----------------------------------------------------

@@ -5,6 +5,7 @@ public class Compte {
 	//----------------------------------------------------
     //---------ATTRIBUTS------------------------------------
     //----------------------------------------------------
+	private static int compteur=0;
 	private int numCompte;
 	private String nomUtilisateur;
 	private String prenomUtilisateur;
@@ -37,13 +38,13 @@ public class Compte {
 	//----------------------------------------------------
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
-	public Compte(int numCompte, String nomUtilisateur, String prenomUtilisateur, String addressMailUtilisateur,
+	public Compte(String nomUtilisateur, String prenomUtilisateur, String addressMailUtilisateur,
 			String telephoneUtilisateur, String apparence, boolean autorisationLocalisation,
 			boolean autorisationNotification, String dateNaissanceUtilisateur, boolean gestionnaire,
 			boolean administrateur) 
 	{
 		super();
-		this.numCompte = numCompte;
+		this.numCompte=compteur;
 		this.nomUtilisateur = nomUtilisateur;
 		this.prenomUtilisateur = prenomUtilisateur;
 		this.addressMailUtilisateur = addressMailUtilisateur;
@@ -54,6 +55,7 @@ public class Compte {
 		this.dateNaissanceUtilisateur = dateNaissanceUtilisateur;
 		this.gestionnaire = gestionnaire;
 		this.administrateur = administrateur;
+		compteur++;
 	}
 	
 	//----------------------------------------------------

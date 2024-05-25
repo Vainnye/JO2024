@@ -7,7 +7,8 @@ public class Epreuve {
 	//----------------------------------------------------
     //---------ATTRIBUTS------------------------------------
     //----------------------------------------------------
-	private int numEpreuve=0;
+	private static int compteur=0;
+	private int numEpreuve;
 	private String dateEpreuve;
 	private String dateDebut;
 	private String dateFin;
@@ -35,12 +36,13 @@ public class Epreuve {
 	public Epreuve(String dateEpreuve, String dateDebut, String dateFin, float dureeHeure,Discipline disciplineEpreuve,
 			Equipe[]listeEquipe,Equipe[] resultatEpreuve){
 		super();
+		this.numEpreuve=compteur;
 		this.dateEpreuve = dateEpreuve;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 		this.dureeHeure = dureeHeure;
 		this.disciplineEpreuve = disciplineEpreuve;
-		numEpreuve++;
+		compteur++;
 		this.listeEquipe = listeEquipe;
 		troisEquipeGagnante = resultatEpreuve;
 		Resultat r = new Resultat(numEpreuve,troisEquipeGagnante);

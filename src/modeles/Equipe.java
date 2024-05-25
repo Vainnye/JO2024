@@ -7,6 +7,7 @@ public class Equipe {
 	//----------------------------------------------------
     //---------ATTRIBUTS------------------------------------
     //----------------------------------------------------
+	private static int compteur=0;
 	private int numEquipe;
 	private String nomEquipe;
 	private String sexe;
@@ -34,9 +35,9 @@ public class Equipe {
 	//----------------------------------------------------
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
-	public Equipe(int numEquipe, String nomEquipe, String sexe, String trancheAge, Pays paysEquipe, Discipline disciplineEquipe) {
+	public Equipe(String nomEquipe, String sexe, String trancheAge, Pays paysEquipe, Discipline disciplineEquipe) {
 		super();
-		this.numEquipe = numEquipe;
+		this.numEquipe=compteur;
 		this.nomEquipe = nomEquipe;
 		this.sexe = sexe;
 		this.trancheAge = trancheAge;
@@ -44,6 +45,7 @@ public class Equipe {
 		this.disciplineEquipe=disciplineEquipe;
 		nbAthlete=0;
 		listeAthlete = new Athlete [NBATHLETEMAX];
+		compteur++;
 	}
 	
 	//----------------------------------------------------
