@@ -33,7 +33,7 @@ public class Epreuve {
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
 	public Epreuve(String dateEpreuve, String dateDebut, String dateFin, float dureeHeure,Discipline disciplineEpreuve,
-			Equipe[]lisetEquipe,Equipe[] resultatEpreuve){
+			Equipe[]listeEquipe,Equipe[] resultatEpreuve){
 		super();
 		this.dateEpreuve = dateEpreuve;
 		this.dateDebut = dateDebut;

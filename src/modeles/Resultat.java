@@ -1,6 +1,6 @@
 package modeles;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 
 public class Resultat {
 	private int numEpreuve;

@@ -15,6 +15,7 @@ public class Equipe {
 	private int nbAthlete;
 	private Athlete listeAthlete [];
 	private Pays paysEquipe;
+	private Discipline disciplineEquipe;
 	
 	
 	//----------------------------------------------------
@@ -28,17 +29,19 @@ public class Equipe {
 	public int getNbAthlete() {return nbAthlete;}
 	public Pays getPaysEquipe() {return paysEquipe;}
 	public String getNomEquipe() {return nomEquipe;}
+	public Discipline getDisciplineEquipe() {return disciplineEquipe;}
 	
 	//----------------------------------------------------
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
-	public Equipe(int numEquipe, String nomEquipe, String sexe, String trancheAge, Pays paysEquipe) {
+	public Equipe(int numEquipe, String nomEquipe, String sexe, String trancheAge, Pays paysEquipe, Discipline disciplineEquipe) {
 		super();
 		this.numEquipe = numEquipe;
 		this.nomEquipe = nomEquipe;
 		this.sexe = sexe;
 		this.trancheAge = trancheAge;
 		this.paysEquipe = paysEquipe;
+		this.disciplineEquipe=disciplineEquipe;
 		nbAthlete=0;
 		listeAthlete = new Athlete [NBATHLETEMAX];
 	}
