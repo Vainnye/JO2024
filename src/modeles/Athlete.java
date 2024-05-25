@@ -23,6 +23,13 @@ public class Athlete {
 	public Equipe getEquipeAthlete() {return EquipeAthlete;}
 	public Pays getPaysAthlete() {return PaysAthlete;}
 	
+	
+	//----------------------------------------------------
+	//---------SETTERS------------------------------------
+	//----------------------------------------------------
+	public void setEquipeAthlete(Equipe E) {EquipeAthlete = E; }
+	
+	
 	//----------------------------------------------------
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
@@ -44,17 +51,11 @@ public class Athlete {
 		this.dateDeNaissance = dateDeNaissance;
 		PaysAthlete = paysAthlete;
 	}
-	//----------------------------------------------------
-    //---------METHODES PRIVEES------------------------------------
-    //----------------------------------------------------
-    private void setEquipeAthlete(Equipe numEquipe) { this.EquipeAthlete = numEquipe; }
-
     
 	//----------------------------------------------------
     //---------METHODES PUBLIQUES------------------------------------
     //----------------------------------------------------
-    public void assignEquipe(Equipe E) {setEquipeAthlete(E);}
-    public void removeEquipe() {setEquipeAthlete(null);}
+
 
 	public static void main(String[] args) {
 

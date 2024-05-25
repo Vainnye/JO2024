@@ -42,14 +42,14 @@ public class Equipe {
 	public void ajoutAthlete(Athlete A) {
 		listeAthlete[nbAthlete] = A;
 		nbAthlete++;
-		A.assignEquipe(this);
+		A.setEquipeAthlete(this);
 	}
 	
 	
 	public void supprimerAthlete(Athlete A) {
 		listeAthlete[nbAthlete] = null;
 		nbAthlete--;
-		A.removeEquipe();
+		A.setEquipeAthlete(null);
 	}
 
 	public static void main(String[] args) {

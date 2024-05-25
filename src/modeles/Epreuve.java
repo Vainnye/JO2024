@@ -11,7 +11,8 @@ public class Epreuve {
 	private String dateFin;
 	private float dureeHeure;
 	private Discipline disciplineEpreuve;
-	private Equipe equipeGagnante;
+	private Equipe listeEquipe[];
+	private Equipe troisEquipeGagnante[];
 	
 	
 	
@@ -29,7 +30,8 @@ public class Epreuve {
 	//----------------------------------------------------
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
-	public Epreuve(String dateEpreuve, String dateDebut, String dateFin, float dureeHeure,Discipline disciplineEpreuve) {
+	public Epreuve(String dateEpreuve, String dateDebut, String dateFin, float dureeHeure,Discipline disciplineEpreuve,
+			Equipe[]lisetEquipe,Equipe[] resultatEpreuve){
 		super();
 		this.dateEpreuve = dateEpreuve;
 		this.dateDebut = dateDebut;
@@ -37,10 +39,9 @@ public class Epreuve {
 		this.dureeHeure = dureeHeure;
 		this.disciplineEpreuve = disciplineEpreuve;
 		numEpreuve++;
+		this.listeEquipe = listeEquipe;
+		troisEquipeGagnante = resultatEpreuve;
 	}
-	
-	
-	
 	
 	public static void main(String[] args) {
 
