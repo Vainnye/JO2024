@@ -41,6 +41,7 @@ public class Epreuve {
 		numEpreuve++;
 		this.listeEquipe = listeEquipe;
 		troisEquipeGagnante = resultatEpreuve;
+		Resultat r = new Resultat(numEpreuve,troisEquipeGagnante);
 	}
 	
 	public static void main(String[] args) {
