@@ -2,6 +2,9 @@ package modeles;
 
 public class Compte {
 	
+	//----------------------------------------------------
+    //---------ATTRIBUTS------------------------------------
+    //----------------------------------------------------
 	private int numCompte;
 	private String nomUtilisateur;
 	private String prenomUtilisateur;
@@ -29,11 +32,52 @@ public class Compte {
 	public String getDateNaissanceUtilisateur() {return dateNaissanceUtilisateur;}
 	public boolean isGestionnaire() {return gestionnaire;}
 	public boolean isAdministrateur() {return administrateur;}
-
+	
+	
+	//----------------------------------------------------
+    //---------CONSTRUCTEUR------------------------------------
+    //----------------------------------------------------
+	public Compte(int numCompte, String nomUtilisateur, String prenomUtilisateur, String addressMailUtilisateur,
+			String telephoneUtilisateur, String apparence, boolean autorisationLocalisation,
+			boolean autorisationNotification, String dateNaissanceUtilisateur, boolean gestionnaire,
+			boolean administrateur) 
+	{
+		super();
+		this.numCompte = numCompte;
+		this.nomUtilisateur = nomUtilisateur;
+		this.prenomUtilisateur = prenomUtilisateur;
+		this.addressMailUtilisateur = addressMailUtilisateur;
+		this.telephoneUtilisateur = telephoneUtilisateur;
+		Apparence = apparence;
+		this.autorisationLocalisation = autorisationLocalisation;
+		this.autorisationNotification = autorisationNotification;
+		this.dateNaissanceUtilisateur = dateNaissanceUtilisateur;
+		this.gestionnaire = gestionnaire;
+		this.administrateur = administrateur;
+	}
+	
+	
+	//----------------------------------------------------
+    //---------METHODES PUBLIQUES------------------------------------
+    //----------------------------------------------------
+	public void changeLocalisation() {
+		if (autorisationLocalisation)
+			autorisationLocalisation=false;
+		else
+			autorisationLocalisation=true;
+	}
+	
+	public void changeNotification() {
+		if (autorisationNotification)
+			autorisationNotification=false;
+		else
+			autorisationNotification=true;
+	}
 
 
 	public static void main(String[] args) {
 		
 	}
+	
 
 }

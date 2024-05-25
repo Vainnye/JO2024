@@ -1,13 +1,17 @@
 package modeles;
 
 public class Epreuve {
-	
+
+	//----------------------------------------------------
+    //---------ATTRIBUTS------------------------------------
+    //----------------------------------------------------
 	private int numEpreuve=0;
 	private String dateEpreuve;
 	private String dateDebut;
 	private String dateFin;
 	private float dureeHeure;
 	private Discipline disciplineEpreuve;
+	private Equipe equipeGagnante;
 	
 	
 	
@@ -22,10 +26,9 @@ public class Epreuve {
 	public Discipline getDisciplineEpreuve() {return disciplineEpreuve;}
 	
 	
-	
-	
-	
-	
+	//----------------------------------------------------
+    //---------CONSTRUCTEUR------------------------------------
+    //----------------------------------------------------
 	public Epreuve(String dateEpreuve, String dateDebut, String dateFin, float dureeHeure,Discipline disciplineEpreuve) {
 		super();
 		this.dateEpreuve = dateEpreuve;
