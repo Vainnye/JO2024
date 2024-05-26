@@ -43,6 +43,7 @@ public class Athlete {
 		EquipeAthlete = equipeAthlete;
 		PaysAthlete = paysAthlete;
 		compteur++;
+		equipeAthlete.ajoutAthlete(this);
 	}
 	
 	public Athlete(String prenomAthlete, String nomAthlete, String dateDeNaissance, Pays paysAthlete) {
@@ -71,6 +72,13 @@ public class Athlete {
 
 
 	public static void main(String[] args) {
+		/*Athlete mbappe = new Athlete("Kylian","Mbappe","10/10/1998",equipeDeFrance,france);
+		Athlete griezman = new Athlete("Antoine","Griezman","10/12/1995",equipeDeFrance,france);
+		Athlete ronaldo = new Athlete("Christiano","Ronaldo","13/11/1992",equipeDuPortugal,portugal);
+		
+		System.out.println(mbappe);
+		System.out.println(griezman);
+		System.out.println(ronaldo);*/
 
 	}
 	

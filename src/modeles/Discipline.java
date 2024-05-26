@@ -38,6 +38,13 @@ public class Discipline {
 	}
 	
 	public static void main(String[] args) {
+		Discipline football = new Discipline("football");
+		Discipline basketball = new Discipline("basketball");
+		Discipline handball = new Discipline("handball");
+		
+		System.out.println(football);
+		System.out.println(basketball);
+		System.out.println(handball);
 
 	}
 	

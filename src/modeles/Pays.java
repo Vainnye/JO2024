@@ -52,8 +52,8 @@ public class Pays {
     //----------------------------------------------------
 	@Override
 	public String toString() {
-		return "Pays [numPays=" + numPays + ", nom du Pays=" + nomPays + ", nombre de médaille d'Or=" + nbOr + ", nombre de médaille d'Argent=" + nbArgent
-				+ ", nombre de médaille de Bronze=" + nbBronze + ", nombre d'Equipe=" + nbEquipe
+		return "Pays [numPays=" + numPays + ", nom du Pays= " + nomPays + ", nombre de médaille d'Or= " + nbOr + ", nombre de médaille d'Argent= " + nbArgent
+				+ ", nombre de médaille de Bronze= " + nbBronze + ", nombre d'Equipe= " + nbEquipe
 				+ "]";
 	}
 	
@@ -79,13 +79,17 @@ public class Pays {
 	public void delBronze() {nbBronze--;}
 
 	public static void main(String[] args) {
-		Pays France = new Pays("France","fr");
-		Pays Espagne = new Pays("Espagne","fr");
-		Pays Italie = new Pays("Italie","fr");
+		Pays france = new Pays("France","fr");
+		Pays espagne = new Pays("Espagne","fr");
+		Pays italie = new Pays("Italie","fr");
+		Pays portugal = new Pays("Portugal","pg");
+
 		
-		System.out.println(France);
-		System.out.println(Espagne);
-		System.out.println(Italie);
+		System.out.println(france);
+		System.out.println(espagne);
+		System.out.println(italie);
+		System.out.println(portugal);
+
 	}
 
 }
