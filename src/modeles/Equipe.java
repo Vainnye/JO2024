@@ -73,7 +73,7 @@ public class Equipe {
 		nbAthlete--;
 		A.setEquipeAthlete(null);
 	}
-
+	
 	public static void main(String[] args) {
 
 	}

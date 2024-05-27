@@ -34,7 +34,7 @@ public class Epreuve {
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
 	public Epreuve(String dateEpreuve, String heureDebut, String heureFin, float dureeHeure,Discipline disciplineEpreuve,
-			Equipe[]listeEquipe,Equipe[] resultatEpreuve){
+			Equipe[]listeEquipeTot,Equipe[] resultatEpreuveTot){
 		super();
 		this.numEpreuve=compteur;
 		this.dateEpreuve = dateEpreuve;
@@ -43,8 +43,8 @@ public class Epreuve {
 		this.dureeHeure = dureeHeure;
 		this.disciplineEpreuve = disciplineEpreuve;
 		compteur++;
-		this.listeEquipe = listeEquipe;
-		troisEquipeGagnante = resultatEpreuve;
+		listeEquipe = listeEquipeTot;
+		troisEquipeGagnante = resultatEpreuveTot;
 		Resultat r = new Resultat(numEpreuve,troisEquipeGagnante);
 	}
 	
