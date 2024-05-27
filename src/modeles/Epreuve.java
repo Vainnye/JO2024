@@ -62,9 +62,6 @@ public class Epreuve {
 	
 	
 	public static void main(String[] args) {
-		/*Epreuve footJour1 = new Epreuve("12/07/2024","14h","16h",2,football,{equipeDeFrance,equipeDuPortugal},{equipeDeFrance,equipeDuPortugal});
-		
-		System.out.println(footJour1);*/
 	}
 	
 

@@ -75,11 +75,6 @@ public class Equipe {
 	}
 
 	public static void main(String[] args) {
-		/*Equipe equipeDeFrance = new Equipe("Equipe de France","masculin","18-40 ans",france,football)
-		Equipe equipeDuPortugal = new Equipe("Equipe du Portugal","masculin","18-40 ans",portugal,football)
-		
-		System.out.println(equipeDeFrance);
-		System.out.println(equipeDuPortugal);*/
 
 	}
 

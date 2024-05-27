@@ -76,12 +76,13 @@ public class Compte {
 		if(administrateur)administrateurA="oui";
 		else administrateurA="non";
 		
-		return "Compte [numCompte=" + numCompte + ", nomUtilisateur=" + nomUtilisateur + ", prenomUtilisateur="
-				+ prenomUtilisateur + ", addressMailUtilisateur=" + addressMailUtilisateur + ", telephoneUtilisateur="
-				+ telephoneUtilisateur + ", Apparence=" + Apparence + ", autorisationLocalisation="
-				+ localisation + ", autorisationNotification=" + notification
-				+ ", dateNaissanceUtilisateur=" + dateNaissanceUtilisateur + ", gestionnaire=" + gestionnaireA
-				+ ", administrateur=" + administrateurA + "]";
+		return "Compte [numCompte= " + numCompte + ", nom de famille= " + nomUtilisateur + ", prenom= "
+				+ prenomUtilisateur + ", addresse Mail =" + addressMailUtilisateur + ", date de naissance= " + dateNaissanceUtilisateur 
+				+ ", telephone= "+ telephoneUtilisateur 
+				+ ", Apparence de l'aaplication= " + Apparence + ", autorisation pour la localisation= "
+				+ localisation + ", autorisation pour les notifications= " + notification
+				+ ", ce compte est-il gestionnaire= " + gestionnaireA
+				+ ", ce compte est-il administrateur= " + administrateurA + "]";
 	}
 	
 	
@@ -104,9 +105,12 @@ public class Compte {
 
 
 	public static void main(String[] args) {
-		/*Compte compte1 = new Compte("Neuville","Thomas","thomas.neuville@universite-paris-saclay.fr","0707070707","Sombre",0,0,"12/10/2005",0,0);
-		
-		System.out.println(compte1);*/
+		Compte compte1 = new Compte("Neuville","Thomas","thomas.neuville@universite-paris-saclay.fr","0707070707","Sombre",false,false,"12/10/2005",false,false);
+		Compte compte2 = new Compte("Durand","Ines","ines.durand@universite-paris-saclay.fr","0707070707","Sombre",false,true,"12/10/2005",false,true);
+
+		System.out.println(compte1);
+		System.out.println(compte2);
+
 	}
 	
 
