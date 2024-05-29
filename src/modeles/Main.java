@@ -75,8 +75,8 @@ public class Main {
 		Equipe[] listeEquipeMatchFootJour1 = {equipeDeFrance,equipeDuPortugal};
 		Equipe[] resultatEquipeMatchFootJour1 = {equipeDeFrance,equipeDuPortugal};
 
-		//Epreuve footJour1 = new Epreuve("12/07/2024","14h","16h",2,football,listeEquipeMatchFootJour1,resultatEquipeMatchFootJour1);
-		//System.out.println(footJour1);
+		Epreuve footJour1 = new Epreuve("12/07/2024","14h","16h",2,football,listeEquipeMatchFootJour1,resultatEquipeMatchFootJour1);
+		System.out.println(footJour1);
 
 	}
 
