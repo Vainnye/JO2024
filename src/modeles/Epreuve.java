@@ -60,8 +60,7 @@ public class Epreuve {
 				+ Arrays.toString(troisEquipeGagnante) + "]";
 	}
 	
-<<<<<<< HEAD
-=======
+
 	public String toStringRd() {
         StringBuilder sb = new StringBuilder();
         sb.append("Epreuve [numEpreuve=").append(numEpreuve);
@@ -77,7 +76,7 @@ public class Epreuve {
         return sb.toString();
     }
 	
->>>>>>> refs/remotes/origin/main
+
 	public void affichage(Equipe tab[]) {
 		for(Equipe i: tab)
 			i.afficherAthlete();
