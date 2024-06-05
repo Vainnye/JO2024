@@ -58,6 +58,15 @@ public class Equipe {
 				+ "]";
 	}
 	
+	public String toStringRd() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(nomEquipe).append(": ");
+        for (Athlete athlete : listeAthlete) {
+        	if(athlete !=null)
+        		sb.append(athlete.getNomAthlete()).append(", ");
+        }
+        return sb.toString();
+    }
 	
 	//----------------------------------------------------
     //---------METHODES PUBLIQUES------------------------------------

@@ -76,7 +76,12 @@ public class Main {
 		Equipe[] resultatEquipeMatchFootJour1 = {equipeDeFrance,equipeDuPortugal};
 
 		Epreuve footJour1 = new Epreuve("12/07/2024","14h","16h",2,football,listeEquipeMatchFootJour1,resultatEquipeMatchFootJour1);
+<<<<<<< HEAD
 		System.out.println(footJour1);
+=======
+		//System.out.println(footJour1);
+		System.out.println(footJour1.toStringRd());
+>>>>>>> refs/remotes/origin/main
 
 	}
 

@@ -60,6 +60,24 @@ public class Epreuve {
 				+ Arrays.toString(troisEquipeGagnante) + "]";
 	}
 	
+<<<<<<< HEAD
+=======
+	public String toStringRd() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Epreuve [numEpreuve=").append(numEpreuve);
+        sb.append(", dateEpreuve=").append(dateEpreuve);
+        sb.append(", heureDebut=").append(heureDebut);
+        sb.append(", heureFin=").append(heureFin);
+        sb.append(", dureeHeure=").append(dureeHeure);
+        sb.append(", disciplineEpreuve=").append(disciplineEpreuve.getNomDiscipline());
+        sb.append(", listeEquipe=");
+        for (Equipe equipe : listeEquipe) {
+            sb.append(equipe.toStringRd()).append("/ ");
+        }
+        return sb.toString();
+    }
+	
+>>>>>>> refs/remotes/origin/main
 	public void affichage(Equipe tab[]) {
 		for(Equipe i: tab)
 			i.afficherAthlete();
