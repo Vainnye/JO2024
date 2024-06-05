@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class ControleursEpreuve extends JPanel implements ActionListener{
+public class ControleursEpreuve  implements ActionListener{
 
 	JLabel S1,S2,S3,S4,S5,S6;
 	JButton bMenu;
@@ -39,26 +39,9 @@ public class ControleursEpreuve extends JPanel implements ActionListener{
 		}
 	}
 
-	public static void main(String[] args) {
-
-		// Creer une fenetre
-		JFrame fenetre = new JFrame ("Epreuve");
-		fenetre.setSize (400, 200);
-		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		// Creer une instance de ma classe
-		ControleursEpreuve p = new ControleursEpreuve ();
-
-		//placement dans la fenetre
-				p.setLayout(new GridLayout(7, 1));
-		
-		// Ajouter mon instance dans un des conteneurs de la fen?tre
-		fenetre.add(p);
-
-		// Afficher la fenetre
-		fenetre.setVisible(true);
+	
 	}
 
 
 
-}
+
