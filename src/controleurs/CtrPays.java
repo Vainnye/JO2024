@@ -2,14 +2,14 @@ package controleurs;
 
 import java.util.ArrayList;
 
-public class ControleursPays {
+public class CtrPays {
 
 	 private String nom;
 	 private int nbMdedailleOr,nbMdedailleArg,nbMdedailleBrz;
 	
 	
 
-	public ControleursPays(String nom,int nbMdedailleOr,int nbMdedailleArg,int nbMdedailleBrz) {
+	public CtrPays(String nom,int nbMdedailleOr,int nbMdedailleArg,int nbMdedailleBrz) {
 		this.nom=nom;
 		this.nbMdedailleOr=nbMdedailleOr;
 		this.nbMdedailleArg=nbMdedailleArg;
