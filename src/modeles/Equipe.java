@@ -74,6 +74,11 @@ public class Equipe {
 		A.setEquipeAthlete(null);
 	}
 	
+	public void afficherAthlete() {
+		for(Athlete i:listeAthlete)
+			System.out.println(i.getPrenomAthlete()+i.getNomAthlete());
+	}
+	
 	public static void main(String[] args) {
 
 	}

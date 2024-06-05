@@ -26,12 +26,18 @@ public class Resultat {
 	Resultat(int numEpreuve,Equipe[]listeResultat){
 		this.numEpreuve = numEpreuve;
 		resultat = listeResultat;
-		premier = resultat[0];
-		deuxieme = resultat[1];
-		troisieme = resultat[2];
-		premier.getPaysEquipe().addOr();
-		deuxieme.getPaysEquipe().addArgent();
-		troisieme.getPaysEquipe().addBronze();
+		if (resultat.length > 0) {
+            premier = resultat[0];
+            premier.getPaysEquipe().addOr();
+        }
+        if (resultat.length > 1) {
+            deuxieme = resultat[1];
+            deuxieme.getPaysEquipe().addArgent();
+        }
+        if (resultat.length > 2) {
+            troisieme = resultat[2];
+            troisieme.getPaysEquipe().addBronze();
+        }
 	}
 	
 	//----------------------------------------------------

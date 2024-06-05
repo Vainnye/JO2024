@@ -60,6 +60,10 @@ public class Epreuve {
 				+ Arrays.toString(troisEquipeGagnante) + "]";
 	}
 	
+	public void affichage(Equipe tab[]) {
+		for(Equipe i: tab)
+			i.afficherAthlete();
+	}
 	
 	public static void main(String[] args) {
 	}
