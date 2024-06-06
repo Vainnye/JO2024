@@ -13,14 +13,22 @@ import javax.imageio.ImageIO;
 
 	public class vuesDiscipline extends JPanel {
 
-		 private CardLayout cardLayout;
-		 private JPanel mainPanel;
-		 private DefaultTableModel model;
-		 private int currentDisciplineNumber ;
-		 
-		 public int getNextDisciplineNumber() {
-		        return currentDisciplineNumber++; // Retourne le numéro actuel et l'incrémente
-		 }
+		//----------------------------------------------
+		//  Déclaration des éléments de l'interface
+		//----------------------------------------------
+		private CardLayout cardLayout;
+		private JPanel mainPanel;		
+		private DefaultTableModel model;
+		private JButton backButton;
+		private JButton addButton;
+		
+		private int currentDisciplineNumber ;
+	 
+		
+		
+		public int getNextDisciplineNumber() {
+			return currentDisciplineNumber++; // Retourne le numéro actuel et l'incrémente
+		}
 	    
 	    public vuesDiscipline(CardLayout cardLayout, JPanel mainPanel) {
 	    	this.cardLayout = cardLayout;
@@ -53,7 +61,7 @@ import javax.imageio.ImageIO;
 	        //--------------------------------------------------------------------------
 	        // --------------Création du bouton retour(menu)----------------------------
 	        //--------------------------------------------------------------------------
-	        JButton backButton = new JButton("Retour");
+	        backButton = new JButton("Retour");
 	        backButton.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
@@ -89,7 +97,7 @@ import javax.imageio.ImageIO;
 	        disciplinePanel.add(scrollPane, BorderLayout.CENTER);
 
 	        // Ajout du bouton pour ajouter de nouveaux discipline
-	        JButton addButton = new JButton("Ajouter discipline");
+	        addButton = new JButton("Ajouter discipline");
 	        addButton.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
