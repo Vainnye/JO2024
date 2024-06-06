@@ -31,6 +31,24 @@ public class Athlete {
 	public void setEquipeAthlete(Equipe E) {EquipeAthlete = E; }
 	
 	
+	public static void setCompteur(int compteur) {
+		Athlete.compteur = compteur;
+	}
+	public void setNumAthlete(int numAthlete) {
+		this.numAthlete = numAthlete;
+	}
+	public void setPrenomAthlete(String prenomAthlete) {
+		this.prenomAthlete = prenomAthlete;
+	}
+	public void setNomAthlete(String nomAthlete) {
+		this.nomAthlete = nomAthlete;
+	}
+	public void setDateDeNaissance(String dateDeNaissance) {
+		this.dateDeNaissance = dateDeNaissance;
+	}
+	public void setPaysAthlete(Pays paysAthlete) {
+		PaysAthlete = paysAthlete;
+	}
 	//----------------------------------------------------
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------

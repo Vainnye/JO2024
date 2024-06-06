@@ -16,7 +16,7 @@ public class Epreuve {
 	private Discipline disciplineEpreuve;
 	private Equipe listeEquipe[];
 	private Equipe troisEquipeGagnante[];
-	
+	private Resultat results;
 	
 	
 	//----------------------------------------------------
@@ -28,7 +28,7 @@ public class Epreuve {
 	public String getDateFin() {return heureFin;}
 	public float getDureeHeure() {return dureeHeure;}
 	public Discipline getDisciplineEpreuve() {return disciplineEpreuve;}
-	
+	public Resultat getResults() {return results;}
 	
 	//----------------------------------------------------
     //---------CONSTRUCTEUR------------------------------------
@@ -45,7 +45,7 @@ public class Epreuve {
 		compteur++;
 		listeEquipe = listeEquipeTot;
 		troisEquipeGagnante = resultatEpreuveTot;
-		Resultat r = new Resultat(numEpreuve,troisEquipeGagnante);
+		results = new Resultat(numEpreuve,troisEquipeGagnante);
 	}
 	
 	
@@ -60,7 +60,6 @@ public class Epreuve {
 				+ Arrays.toString(troisEquipeGagnante) + "]";
 	}
 	
-
 	public String toStringRd() {
         StringBuilder sb = new StringBuilder();
         sb.append("Epreuve [numEpreuve=").append(numEpreuve);
@@ -76,7 +75,6 @@ public class Epreuve {
         return sb.toString();
     }
 	
-
 	public void affichage(Equipe tab[]) {
 		for(Equipe i: tab)
 			i.afficherAthlete();
