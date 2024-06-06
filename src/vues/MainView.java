@@ -4,117 +4,135 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import javax.imageio.ImageIO;
 
 public class MainView extends JFrame {
 
-    private JButton athleteButton;
-    private JButton equipeButton;
-    private JButton paysButton;
-    private JButton disciplineButton;
-    private JButton epreuveButton;
-    private JButton resultatButton;
+    private CardLayout cardLayout;
+    private JPanel mainPanel;
 
     public MainView() {
-        setTitle("Gestion des Sports");
-        setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+    	//------------------------------------------------------
+    	//-----------------Page d'acceuil(home)-----------------
+    	//------------------------------------------------------
+        setTitle("Jeux Olympiques 2024"); 				//Titre sur la fenetre
+        setPreferredSize(new Dimension(400, 600));		//Taille de la fenetre
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 2));
+        cardLayout = new CardLayout();					//permet d'aller de fenetre en fenetre 
+        mainPanel = new JPanel(cardLayout);
+        JPanel homePanel = new JPanel(new BorderLayout()); //permet de diviser le panel en nord, sud, est, ouest et centre(en anglais pour les utiliser)
+        JLabel label = new JLabel("Jeux Olympiques 2024", SwingConstants.CENTER);
+        label.setFont(new Font("Arial", Font.BOLD, 24)); //police arial en gras de taille 24
+        homePanel.add(label, BorderLayout.CENTER);		//place le JLabel au centre 
 
-        athleteButton = new JButton("Athletes");
-        equipeButton = new JButton("Equipes");
-        paysButton = new JButton("Pays");
-        disciplineButton = new JButton("Disciplines");
-        epreuveButton = new JButton("Epreuves");
-        resultatButton = new JButton("Resultats");
+        JButton openButton = new JButton("Ouvrir");		//creation du bouton ouvrir
+        openButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        panel.add(athleteButton);
-        panel.add(equipeButton);
-        panel.add(paysButton);
-        panel.add(disciplineButton);
-        panel.add(epreuveButton);
-        panel.add(resultatButton);
-
-        add(panel);
-
-        athleteButton.addActionListener(new ActionListener() {
+        openButton.addActionListener(new ActionListener() {	//lorsque l'on clique sur le bouton on va sur la fenetre menu
             @Override
             public void actionPerformed(ActionEvent e) {
-                showvuesAthlete();
+                cardLayout.show(mainPanel, "menu");
             }
         });
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));//placement des margine du bouton ouvri    
+        buttonPanel.add(openButton); 
+        homePanel.add(buttonPanel, BorderLayout.SOUTH); // placement du bouton ouvrir
+        
+        
+        //------------------------------------------------------
+    	//------------------bandeau(bandeauPanel)---------------
+    	//------------------------------------------------------
+        
+        
+        JPanel menuPanel = new JPanel(new GridLayout(0, 1, 0, 10)); // Panneau du menu principal
+        JPanel bandeauPanel = new JPanel(new BorderLayout());	    // Ajout d'un bandeau supérieur sur la page du menu
+        bandeauPanel.setBackground(Color.WHITE);				    //couleur du background
+        bandeauPanel.setPreferredSize(new Dimension(300, 50));      // Taille du bandeau
+        
+        																			
+        
+        // Ajout de l'image à gauche du bandeau le Logo
+        try {
+            Image img = ImageIO.read(new File("./logoJO.png")); 	//importer l'image du logo
+            ImageIcon icon = new ImageIcon(img);
+            Image scaledImage = icon.getImage().getScaledInstance(100, 70, Image.SCALE_SMOOTH); // Réduire la taille de l'image
+            ImageIcon scaledIcon = new ImageIcon(scaledImage);
+            JLabel imgLabel = new JLabel(scaledIcon);
+            bandeauPanel.add(imgLabel, BorderLayout.WEST); 			//placement de l'image dans le bandeau 
+            imgLabel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0)); //border a gauche de l'image
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        //------------------------------------------------------
+    	//------------------page de menu(menu)------------------
+    	//------------------------------------------------------
+        
+        menuPanel.add(bandeauPanel); //met le bandeau dans le menu
+        menuPanel.setBorder(BorderFactory.createEmptyBorder(0, 20, 20, 20)); //margine des boutons
+        String[] options = {"Athlètes", "Équipes", "Pays", "Disciplines", "Épreuves", "Résultats"}; //liste des boutons
+        for (String option : options) {			//permet d'acceder au vues
+            JButton button = new JButton(option);
+            button.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    openSelectedView(option);
+                }
+            });
+            menuPanel.add(button);
+        }
 
-        equipeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                showvuesEquipe();
-            }
-        });
+        JScrollPane scrollPane = new JScrollPane(menuPanel); //permet d'aller de page en page 
+        
+        //------------------------------------------------------
+    	//-----------------------mainPanel----------------------
+    	//------------------------------------------------------
+        
+        // Ajout des panneaux à mainPanel
+        mainPanel.add(homePanel, "home");
+        mainPanel.add(scrollPane, "menu");
 
-        paysButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                showvuesPays();
-            }
-        });
+        // Ajout des autres vues
+        mainPanel.add(new vuesAthlete(cardLayout, mainPanel), "athletes");
+        mainPanel.add(new vuesEquipe(cardLayout, mainPanel), "equipes");
+        mainPanel.add(new vuesPays(cardLayout, mainPanel), "pays");
+        mainPanel.add(new vuesDiscipline(cardLayout, mainPanel), "disciplines");
+        mainPanel.add(new vuesEpreuve(cardLayout, mainPanel), "epreuves");
+        mainPanel.add(new vuesResultat(cardLayout, mainPanel), "resultats");
 
-        disciplineButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                showvuesDiscipline();
-            }
-        });
-
-        epreuveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                showvuesEpreuve();
-            }
-        });
-
-        resultatButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                showvuesResultat();
-            }
-        });
+        add(mainPanel);
+        pack();
+        cardLayout.show(mainPanel, "home"); // Afficher la page d'accueil au démarrage
     }
 
-    private void showvuesAthlete() {
-        vuesAthlete vuesathlete = new vuesAthlete();
-        vuesathlete.setVisible(true);
-    }
-
-    private void showvuesEquipe() {
-        vuesEquipe vuesequipe = new vuesEquipe();
-        vuesequipe.setVisible(true);
-    }
-
-    private void showvuesPays() {
-        vuesPays vuespays = new vuesPays();
-        vuespays.setVisible(true);
-    }
-
-    private void showvuesDiscipline() {
-        vuesDiscipline vuesdiscipline = new vuesDiscipline();
-        vuesdiscipline.setVisible(true);
-    }
-
-    private void showvuesEpreuve() {
-        vuesEpreuve vuesepreuve = new vuesEpreuve();
-        vuesepreuve.setVisible(true);
-    }
-
-    private void showvuesResultat() {
-        vuesResultat vuesresultat = new vuesResultat();
-        vuesresultat.setVisible(true);
+    private void openSelectedView(String option) { //Ouvre les differente vues
+        switch (option) {
+            case "Athlètes":
+                cardLayout.show(mainPanel, "athletes");
+                break;
+            case "Équipes":
+                cardLayout.show(mainPanel, "equipes");
+                break;
+            case "Pays":
+                cardLayout.show(mainPanel, "pays");
+                break;
+            case "Disciplines":
+                cardLayout.show(mainPanel, "disciplines");
+                break;
+            case "Épreuves":
+                cardLayout.show(mainPanel, "epreuves");
+                break;
+            case "Résultats":
+                cardLayout.show(mainPanel, "resultats");
+                break;
+            default:
+                break;
+        }
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
-            @Override
             public void run() {
                 MainView mainView = new MainView();
                 mainView.setVisible(true);
