@@ -41,9 +41,9 @@ public class CtrDiscipline implements ActionListener {
 	// Constructeur
 	//-----------------------------
 	
-	public CtrDiscipline (vuesDiscipline vue, Discipline modele) {
-		this.vue = vue;
+	public CtrDiscipline (Discipline modele, vuesDiscipline vue) {
 		this.modele = modele;
+		this.vue = vue;
 		
 		//vue.getUnBouton().addActionListener(this);
 	}
