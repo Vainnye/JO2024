@@ -111,21 +111,21 @@ public class vuesEquipe extends JPanel {
                 JTextField paysEquipe = new JTextField(10);
                 JTextField disciplineEquipe = new JTextField(10);
                 
-                JPanel inputPanel = new JPanel(new GridLayout(5, 2));
+                JPanel inputPanel = new JPanel(new GridLayout(7, 2));
                 
-                inputPanel.add(new JLabel("nom equipe:"));
+                inputPanel.add(new JLabel("nom equipe : "));
                 inputPanel.add(nomEquipe);
-                inputPanel.add(new JLabel("Sexe:"));
+                inputPanel.add(new JLabel("Sexe : "));
                 inputPanel.add(sexe);
-                inputPanel.add(new JLabel("Tranche d'age:"));
+                inputPanel.add(new JLabel("Tranche d'age : "));
                 inputPanel.add(trancheAge);
-                inputPanel.add(new JLabel("nombre d'athletes:"));
+                inputPanel.add(new JLabel("nombre d'athletes : "));
                 inputPanel.add(nbAthlete);
-                inputPanel.add(new JLabel("listes des athletes:"));
+                inputPanel.add(new JLabel("listes des athletes : "));
                 inputPanel.add(listeAthlete);
-                inputPanel.add(new JLabel("Pays:"));
+                inputPanel.add(new JLabel("Pays : "));
                 inputPanel.add(paysEquipe);
-                inputPanel.add(new JLabel("Discipline:"));
+                inputPanel.add(new JLabel("Discipline : "));
                 inputPanel.add(disciplineEquipe);
                 inputPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
                 
