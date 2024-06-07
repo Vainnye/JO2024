@@ -1,8 +1,39 @@
 package modeles;
 
 //import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 public class Pays {
+	
+	
+	private static ArrayList<Pays> listePays = new ArrayList<Pays>(Arrays.asList(
+		new Pays("France","FRA"),
+		new Pays("Espagne","ESP"),
+		new Pays("Italie","ITA"),
+		new Pays("Portugal","POR"),
+	    new Pays("États-Unis", "USA")
+	));
+	
+	public static ArrayList<Pays> getListCopy() {
+		return new ArrayList<Pays>(listePays);
+	};
+	
+	// MODIFICATIONS EN COURS.......................
+	
+	
+	public static Pays getPays(String codePays) {
+		int i=0;
+		while(i<listePays.size() && listePays.get(i).codePays != codePays) {
+			i++;
+		}
+		if(i>=listePays.size())
+			throw new IllegalArgumentException("Le pays n'existe pas dans la liste");
+		else
+			return listePays.get(i-1);
+	}
+	
 	
 	//----------------------------------------------------
     //---------ATTRIBUTS------------------------------------
