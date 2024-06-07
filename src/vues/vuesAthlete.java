@@ -137,6 +137,7 @@ public class vuesAthlete extends JPanel {
         mainContentPanel.add(athletesPanel, BorderLayout.CENTER);
         add(mainContentPanel, BorderLayout.CENTER);
 
+        
         //--------------------------------------------------------------------------
         // --------------Controleur---------------- --------------------------------
         //--------------------------------------------------------------------------

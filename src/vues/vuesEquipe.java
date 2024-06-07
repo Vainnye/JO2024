@@ -8,8 +8,9 @@ import java.awt.event.ActionListener;
 import modeles.*;
 import java.io.File;
 import java.util.ArrayList;
-
+import java.util.Iterator;
 import javax.imageio.ImageIO;
+import java.util.List;
 
 public class vuesEquipe extends JPanel {
 
@@ -17,6 +18,7 @@ public class vuesEquipe extends JPanel {
     private JPanel mainPanel;
     private DefaultTableModel model;
     private int currentEquipeNumber ;
+    private List<Equipe> equipeli;
     
     public int getNextEquipeNumber() {
         return currentEquipeNumber++; // Retourne le numéro actuel et l'incrémente
@@ -153,6 +155,45 @@ public class vuesEquipe extends JPanel {
         add(mainContentPanel, BorderLayout.CENTER);
         
         
+        //--------------------------------------------------------------------------
+        // --------------Création du bouton Supprimer --------------------------------
+        //--------------------------------------------------------------------------
+        
+        JButton delButton = new JButton("Supprimer Équipe");
+        delButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = table.getSelectedRow();
+                if (selectedRow != -1) {
+                    int equipeNum = (int) table.getValueAt(selectedRow, 0);
+
+                    // Supprimer l'équipe de la liste des équipes en utilisant un itérateur
+                    Iterator<Equipe> iterator = equipeli.iterator();
+                    while (iterator.hasNext()) {
+                        Equipe equipeli = iterator.next();
+                        if (equipeli.getNumEquipe() == equipeNum) {
+                            iterator.remove();
+                            break;
+                        }
+                    }
+
+                    // Supprimer la ligne du modèle de tableau
+                    model.removeRow(selectedRow);
+
+                    // Rafraîchir la vue
+                    rafraichirVue();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Veuillez sélectionner une équipe à supprimer.");
+                }
+            }
+        });
+
+        equipePanel.add(delButton, BorderLayout.NORTH);
+        mainContentPanel.add(equipePanel, BorderLayout.CENTER);
+        add(mainContentPanel, BorderLayout.CENTER);
+    
+
+        
         
         //--------------------------------------------------------------------------
         // --------------Controleur---------------- --------------------------------
@@ -164,7 +205,7 @@ public class vuesEquipe extends JPanel {
 
         Equipe equipeDeFrance = new Equipe("Equipe de France", "masculin", "18-40 ans", france, null);
         Equipe equipeUSA = new Equipe("Equipe USA", "feminin", "18-40 ans", usa, null);
-
+        
         // Ajout des pays à la table
         ArrayList<Equipe> equipe1 = new ArrayList<>();
         equipe1.add(equipeDeFrance);
@@ -181,7 +222,26 @@ public class vuesEquipe extends JPanel {
                 equipe.getPaysEquipe().getNomPays()
             });
         }
- 
-        
     }
+    
+    
+     // Méthode pour rafraîchir la vue après des modifications dans les données
+        public void rafraichirVue() {
+        	
+            
+            model.setRowCount(0); // Vider le modèle de tableau
+            for (Equipe equipeli : equipeli) {
+                model.addRow(new Object[]{
+                    equipeli.getNumEquipe(),
+                    equipeli.getNomEquipe(),
+                    equipeli.getSexe(),
+                    equipeli.getTrancheAge(),
+                    equipeli.getNbAthlete(),
+                    equipeli.getListeAthlete(),
+                    equipeli.getPaysEquipe().getNomPays(),
+                    equipeli.getDisciplineEquipe().getNomDiscipline()
+                }); 
+            }
+    }
+
 }

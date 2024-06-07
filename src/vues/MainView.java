@@ -17,7 +17,7 @@ public class MainView extends JFrame {
     	//-----------------Page d'acceuil(home)-----------------
     	//------------------------------------------------------
         setTitle("Jeux Olympiques 2024"); 				//Titre sur la fenetre
-        setPreferredSize(new Dimension(400, 600));		//Taille de la fenetre
+        setPreferredSize(new Dimension(600, 600));		//Taille de la fenetre
 
         cardLayout = new CardLayout();					//permet d'aller de fenetre en fenetre 
         mainPanel = new JPanel(cardLayout);
@@ -66,6 +66,19 @@ public class MainView extends JFrame {
             e.printStackTrace();
         }
         
+        
+        JButton Planning = new JButton("Planning");
+        Planning.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "planning");
+            }
+        });
+        
+        bandeauPanel.add(Planning, BorderLayout.EAST);
+        Planning.setPreferredSize(new Dimension(80, 90));
+        Planning.setPreferredSize(new Dimension(Planning.getPreferredSize().width + 20, 50));
+        
         //------------------------------------------------------
     	//------------------page de menu(menu)------------------
     	//------------------------------------------------------
@@ -100,7 +113,8 @@ public class MainView extends JFrame {
         mainPanel.add(new vuesDiscipline(cardLayout, mainPanel), "disciplines");
         mainPanel.add(new vuesEpreuve(cardLayout, mainPanel), "epreuves");
         mainPanel.add(new vuesResultat(cardLayout, mainPanel), "resultats");
-
+        mainPanel.add(new vuesPlanning(cardLayout, mainPanel), "planning");
+        
         add(mainPanel);
         pack();
         cardLayout.show(mainPanel, "home"); // Afficher la page d'accueil au démarrage
@@ -125,6 +139,9 @@ public class MainView extends JFrame {
                 break;
             case "Résultats":
                 cardLayout.show(mainPanel, "resultats");
+                break;
+            case "Planning":
+                cardLayout.show(mainPanel, "planning");
                 break;
             default:
                 break;

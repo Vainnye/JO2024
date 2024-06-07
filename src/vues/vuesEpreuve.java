@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import modeles.*;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import javax.imageio.ImageIO;
 
 
@@ -17,6 +19,7 @@ public class vuesEpreuve extends JPanel {
 	 private JPanel mainPanel;
 	 private DefaultTableModel model;
 	 private int currentEpreuveNumber ;
+	 private List<Epreuve> epreuveli;
 	 
 	 public int getNextEpreuveNumber() {
 	        return currentEpreuveNumber++; // Retourne le numéro actuel et l'incrémente
@@ -155,6 +158,43 @@ public class vuesEpreuve extends JPanel {
         mainContentPanel.add(epreuvePanel, BorderLayout.CENTER);
         add(mainContentPanel, BorderLayout.CENTER);
 
+        
+        //--------------------------------------------------------------------------
+        // --------------Création du bouton Supprimer --------------------------------
+        //--------------------------------------------------------------------------
+        
+        JButton delButton = new JButton("Supprimer Epreuve");
+        delButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = table.getSelectedRow();
+                if (selectedRow != -1) {
+                    int EpreuveNum = (int) table.getValueAt(selectedRow, 0);
+
+                    // Supprimer l'équipe de la liste des équipes en utilisant un itérateur
+                    Iterator<Epreuve> iterator = epreuveli.iterator();
+                    while (iterator.hasNext()) {
+                    	Epreuve epreuveli = iterator.next();
+                        if (epreuveli.getNmuEpreuve() == EpreuveNum) {
+                            iterator.remove();
+                            break;
+                        }
+                    }
+
+                    // Supprimer la ligne du modèle de tableau
+                    model.removeRow(selectedRow);
+
+                    // Rafraîchir la vue
+                    rafraichirVue();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Veuillez sélectionner une équipe à supprimer.");
+                }
+            }
+        });
+
+        epreuvePanel.add(delButton, BorderLayout.NORTH);
+        mainContentPanel.add(epreuvePanel, BorderLayout.CENTER);
+        add(mainContentPanel, BorderLayout.CENTER);
         //--------------------------------------------------------------------------
         // --------------Controleur---------------- --------------------------------
         //--------------------------------------------------------------------------
@@ -191,6 +231,23 @@ public class vuesEpreuve extends JPanel {
                 epreuve.getDisciplineEpreuve().getNomDiscipline()
             });
         }
+       }
+        // Méthode pour rafraîchir la vue après des modifications dans les données
+        public void rafraichirVue() {
+        	
+            
+            model.setRowCount(0); // Vider le modèle de tableau
+            for (Epreuve epreuveli : epreuveli) {
+                model.addRow(new Object[]{
+                	epreuveli.getNmuEpreuve(),
+                	epreuveli.getDateEpreuve(),
+                	epreuveli.getheureDebut(),
+                	epreuveli.getheureDebut(),
+                    epreuveli.getDateFin(),
+                    epreuveli.getDureeHeure(),
+                    epreuveli.getDisciplineEpreuve().getNomDiscipline()
+                }); 
+            }
     }
     
 }
