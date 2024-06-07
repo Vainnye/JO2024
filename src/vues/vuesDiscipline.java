@@ -156,6 +156,8 @@ public class vuesDiscipline extends JPanel {
         // normalement j'aurais du faire ça dans le main mais je n'ai pas encore compris tout ton code
         // (de Vianney à Inès)
         CtrDiscipline ctr = new CtrDiscipline(this);
+        
+        updateView();
     }
     
 }

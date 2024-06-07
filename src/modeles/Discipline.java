@@ -1,6 +1,7 @@
 package modeles;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Discipline implements Comparable<Discipline> {
 	
@@ -10,7 +11,10 @@ public class Discipline implements Comparable<Discipline> {
 	//-----------------------------------------------------------------------------------------
 	
 	// liste de toutes les disciplines existantes
-	private static ArrayList<Discipline> listeDisciplines = new ArrayList<Discipline>();
+	private static ArrayList<Discipline> listeDisciplines = new ArrayList<Discipline>(Arrays.asList(
+			new Discipline("Athlétisme"),
+			new Discipline("Natation")
+			));
 
 	public static ArrayList<Discipline> getListCopy() { 
 		return new ArrayList<Discipline>(listeDisciplines);
