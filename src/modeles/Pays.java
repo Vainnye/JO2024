@@ -9,29 +9,28 @@ public class Pays {
 	
 	
 	private static ArrayList<Pays> listePays = new ArrayList<Pays>(Arrays.asList(
-		new Pays("France","FRA"),
-		new Pays("Espagne","ESP"),
-		new Pays("Italie","ITA"),
-		new Pays("Portugal","POR"),
-	    new Pays("États-Unis", "USA")
-	));
+			// Pays par défaut
+			new Pays("France","FRA"),	
+			new Pays("Espagne","ESP"),
+			new Pays("Italie","ITA"),
+			new Pays("Portugal","POR"),
+		    new Pays("États-Unis", "USA")
+		));
+	
 	
 	public static ArrayList<Pays> getListCopy() {
 		return new ArrayList<Pays>(listePays);
-	};
-	
-	// MODIFICATIONS EN COURS.......................
+	}
 	
 	
 	public static Pays getPays(String codePays) {
 		int i=0;
-		while(i<listePays.size() && listePays.get(i).codePays != codePays) {
+		while(i<listePays.size() && listePays.get(i).codePays != codePays)
 			i++;
-		}
 		if(i>=listePays.size())
 			throw new IllegalArgumentException("Le pays n'existe pas dans la liste");
 		else
-			return listePays.get(i-1);
+			return listePays.get(i);
 	}
 	
 	
@@ -109,6 +108,7 @@ public class Pays {
 	public void delArgent() {nbArgent--;}
 	public void delBronze() {nbBronze--;}
 
+	/* Test de la méthode toString()
 	public static void main(String[] args) {
 		Pays france = new Pays("France","fr");
 		Pays espagne = new Pays("Espagne","fr");
@@ -120,7 +120,7 @@ public class Pays {
 		System.out.println(espagne);
 		System.out.println(italie);
 		System.out.println(portugal);
-
 	}
+	*/
 
 }
