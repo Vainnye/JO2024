@@ -1,14 +1,75 @@
 package modeles;
 
-public class Discipline {
+import java.util.ArrayList;
+
+public class Discipline implements Comparable<Discipline> {
+	
+	
+	//-----------------------------------------------------------------------------------------
+	//	gestion de la liste de toutes les disciplines (partie modèle de la vue des disciplines
+	//-----------------------------------------------------------------------------------------
+	
+	// liste de toutes les disciplines existantes
+	private static ArrayList<Discipline> listeDisciplines = new ArrayList<Discipline>();
+
+	public static ArrayList<Discipline> getListCopy() { 
+		return new ArrayList<Discipline>(listeDisciplines);
+	}
+	
+	public static void add(Discipline d) {
+		if(d.nomDiscipline.equals(""))
+			throw new IllegalArgumentException("Le nom ne dois pas être vide ");
+		else if(listeDisciplines.isEmpty()) 
+			listeDisciplines.add(d);
+		else if(!listeDisciplines.contains(d))
+			listeDisciplines.add(d);
+		else
+			throw new IllegalArgumentException("la discipline '"+d.getNomDiscipline()+"' existe déjà");
+		
+		listeDisciplines.sort(null);
+	}
+
+	
+	// Exemple de données, vous devez remplacer par les données réelles
+	private static void loadTestSet() {
+		add(new Discipline("Athlétisme"));
+		add(new Discipline("Natation"));
+	}
+
+	
+	//--------------------------------------------------------------------
+	//	override de equals() et compareTo()
+	//	dans le but d'utiliser contains() et sort() sur listeDisciplines
+	//--------------------------------------------------------------------
+	
+	@Override
+	public boolean equals(Object o) {
+	    if (this == o)
+	        return true;
+	    if (o == null)
+	    	return false;
+	    if (getClass() != o.getClass())
+	        return false;
+	    return nomDiscipline.equals(((Discipline)o).nomDiscipline);
+	}
+	
+	
+	@Override
+	public int compareTo(Discipline d) {
+		return this.nomDiscipline.compareTo(d.nomDiscipline);
+	}
+	
+	
+	
+	
+    
 	
 	//----------------------------------------------------
     //---------ATTRIBUTS------------------------------------
     //----------------------------------------------------
-	private static int compteur=0;
 	private int numDiscipline;
 	private String nomDiscipline;
-	
+	private static int compteur=0;
 	
 	
 	//----------------------------------------------------
@@ -23,7 +84,6 @@ public class Discipline {
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
 	public Discipline(String nomDiscipline) {
-		super();
 		this.numDiscipline=compteur;
 		this.nomDiscipline = nomDiscipline;
 		compteur++;
@@ -37,6 +97,8 @@ public class Discipline {
 		return "Discipline [numDiscipline=" + numDiscipline + ", nomDiscipline=" + nomDiscipline + "]";
 	}
 	
+	
+	/* Pour tester :
 	public static void main(String[] args) {
 		Discipline football = new Discipline("football");
 		Discipline basketball = new Discipline("basketball");
@@ -47,6 +109,8 @@ public class Discipline {
 		System.out.println(handball);
 
 	}
-	
+	*/
 
+	
+	
 }

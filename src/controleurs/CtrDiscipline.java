@@ -16,16 +16,11 @@ import javax.swing.JOptionPane;
 
 public class CtrDiscipline implements ActionListener {
 	
-	//-----------------------------
+	//-----------------------------------------------------------
 	// Constantes ACTION pour la gestion des evenements
 	// (plus general que d'utiliser le nom du bouton : 
 	// plusieurs boutons peuvent declencher la meme action)
-	//-----------------------------
-	
-	static public final String ACT_AJOUTE_DISCIPLINE = "AJOUTE_DISCIPLINE";
-	static public final String ACT_RETIRE_DISCIPLINE = "RETIRE_DISCIPLINE";
-	static public final String ACT_GO_MENU = "GO_MENU";
-	static public final String ACT_GO_ACCUEIL = "GO_ACCUEIL";
+	//------------------------------------------------------------
 	
 	
 	//-----------------------------
@@ -33,19 +28,25 @@ public class CtrDiscipline implements ActionListener {
 	//-----------------------------
 	
 	vuesDiscipline vue;
-	Discipline modele;
 	
+	/**
+	 * Pas de référence vers un modele car la vue des disciplines manipule 
+	 * un ArrayList static présent dans Discipline
+	 * 
+	 * au lieu d'appeller "modele", on appelle "Discipline"
+	 * ex: Discipline.add(new Discipline("toto"));
+	 */
 	
 	
 	//-----------------------------
 	// Constructeur
 	//-----------------------------
 	
-	public CtrDiscipline (Discipline modele, vuesDiscipline vue) {
-		this.modele = modele;
+	public CtrDiscipline (vuesDiscipline vue) {
 		this.vue = vue;
 		
-		//vue.getUnBouton().addActionListener(this);
+		vue.getBackButton().addActionListener(this);
+		vue.getAddButton().addActionListener(this);
 	}
 	
 	
@@ -56,13 +57,13 @@ public class CtrDiscipline implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals(ACT_AJOUTE_DISCIPLINE)) {
+		if(e.getSource() == vue.getAddButton()) {
 			// le modèle devrait contenir un ArrayList de String (les noms des discciplines)
 			//
 			JFrame popup = new JFrame();
-		    String nomDiscipline = JOptionPane.showInputDialog(popup,"Discipline à ajouter :", "boîte de dialogue");
+		    String nomDiscipline = vue.saisieDiscipline();//JOptionPane.showInputDialog(popup,"nom Discipline :", "Ajouter une discipline");
 			try {
-		    //modele.add( nomDicipline );
+				Discipline.add(new Discipline(nomDiscipline));
 			} catch (Exception exc) {
 				JOptionPane.showMessageDialog(popup, exc.getMessage(), "erreur", JOptionPane.PLAIN_MESSAGE);
 			}
@@ -70,6 +71,7 @@ public class CtrDiscipline implements ActionListener {
 		//else if(e.getSource() == vue.attribut)
 		//
 		// ...
+		vue.updateView();
 	}
 	
 }
