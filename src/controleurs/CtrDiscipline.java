@@ -27,7 +27,7 @@ public class CtrDiscipline implements ActionListener {
 	// Attributs
 	//-----------------------------
 	
-	vuesDiscipline vue;
+	VueDiscipline vue;
 	
 	/**
 	 * Pas de référence vers un modele car la vue des disciplines manipule 
@@ -42,7 +42,7 @@ public class CtrDiscipline implements ActionListener {
 	// Constructeur
 	//-----------------------------
 	
-	public CtrDiscipline (vuesDiscipline vue) {
+	public CtrDiscipline (VueDiscipline vue) {
 		this.vue = vue;
 		
 		vue.getBackButton().addActionListener(this);

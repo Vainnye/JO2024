@@ -7,10 +7,10 @@ import modeles.*;
 
 public class CtrAthlete implements ActionListener {
 
-	vuesAthlete vAthlete;
+	VueAthlete vAthlete;
 	Athlete mathlete;
 	
-	public CtrAthlete(vuesAthlete vAthlete,	Athlete mathlete) {
+	public CtrAthlete(VueAthlete vAthlete,	Athlete mathlete) {
 		this.vAthlete=vAthlete;
 		this.mathlete=mathlete;
 	}
