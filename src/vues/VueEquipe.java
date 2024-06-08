@@ -12,7 +12,7 @@ import java.util.Iterator;
 import javax.imageio.ImageIO;
 import java.util.List;
 
-public class vuesEquipe extends JPanel {
+public class VueEquipe extends JPanel {
 
     private CardLayout cardLayout;
     private JPanel mainPanel;
@@ -31,7 +31,7 @@ public class vuesEquipe extends JPanel {
     public JButton getDelButton() {return delButton;}
     
     
-    public vuesEquipe(CardLayout cardLayout, JPanel mainPanel) {
+    public VueEquipe(CardLayout cardLayout, JPanel mainPanel) {
     	
     	this.cardLayout = cardLayout;
         this.mainPanel = mainPanel;

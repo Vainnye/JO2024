@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-public class vuesDiscipline extends JPanel {
+public class VueDiscipline extends JPanel {
 
 	//----------------------------------------------
 	//  Déclaration des éléments de l'interface
@@ -76,7 +76,7 @@ public class vuesDiscipline extends JPanel {
 
 	
 	
-    public vuesDiscipline(CardLayout cardLayout, JPanel mainPanel) {
+    public VueDiscipline(CardLayout cardLayout, JPanel mainPanel) {
     	this.cardLayout = cardLayout;
         this.mainPanel = mainPanel;
         this.currentDisciplineNumber = 0; // Initialisation du numéro Discipline à 1

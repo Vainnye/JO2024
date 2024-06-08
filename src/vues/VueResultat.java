@@ -11,12 +11,12 @@ import modeles.*;
 import java.util.ArrayList;
 
 
-public class vuesResultat extends JPanel {
+public class VueResultat extends JPanel {
 
     private DefaultTableModel model;
    
     
-    public vuesResultat(CardLayout cardLayout, JPanel mainPanel) {
+    public VueResultat(CardLayout cardLayout, JPanel mainPanel) {
     	setLayout(new BorderLayout());
 
     	//--------------------------------------------------------------------------

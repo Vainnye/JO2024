@@ -13,7 +13,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 
-public class vuesEpreuve extends JPanel {
+public class VueEpreuve extends JPanel {
 
 	 private CardLayout cardLayout;
 	 private JPanel mainPanel;
@@ -25,7 +25,7 @@ public class vuesEpreuve extends JPanel {
 	        return currentEpreuveNumber++; // Retourne le numéro actuel et l'incrémente
 	 }
     
-    public vuesEpreuve(CardLayout cardLayout, JPanel mainPanel) {
+    public VueEpreuve(CardLayout cardLayout, JPanel mainPanel) {
     	this.cardLayout = cardLayout;
         this.mainPanel = mainPanel;
         this.currentEpreuveNumber = 1; // Initialisation du numéro d'athlète à 1

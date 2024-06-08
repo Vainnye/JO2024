@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import javax.imageio.ImageIO;
 
-public class vuesPlanning extends JPanel {
+public class VuePlanning extends JPanel {
 
     private CardLayout cardLayout;
     private JPanel mainPanel;
@@ -16,7 +16,7 @@ public class vuesPlanning extends JPanel {
     private JTable calendarTable;
     private DefaultTableModel model;
 
-    public vuesPlanning(CardLayout cardLayout, JPanel mainPanel) {
+    public VuePlanning(CardLayout cardLayout, JPanel mainPanel) {
         this.cardLayout = cardLayout;
         this.mainPanel = mainPanel;
 

@@ -107,13 +107,13 @@ public class MainView extends JFrame {
         mainPanel.add(scrollPane, "menu");
 
         // Ajout des autres vues
-        mainPanel.add(new vuesAthlete(cardLayout, mainPanel), "athletes");
-        mainPanel.add(new vuesEquipe(cardLayout, mainPanel), "equipes");
-        mainPanel.add(new vuesPays(cardLayout, mainPanel), "pays");
-        mainPanel.add(new vuesDiscipline(cardLayout, mainPanel), "disciplines");
-        mainPanel.add(new vuesEpreuve(cardLayout, mainPanel), "epreuves");
-        mainPanel.add(new vuesResultat(cardLayout, mainPanel), "resultats");
-        mainPanel.add(new vuesPlanning(cardLayout, mainPanel), "planning");
+        mainPanel.add(new VueAthlete(cardLayout, mainPanel), "athletes");
+        mainPanel.add(new VueEquipe(cardLayout, mainPanel), "equipes");
+        mainPanel.add(new VuePays(cardLayout, mainPanel), "pays");
+        mainPanel.add(new VueDiscipline(cardLayout, mainPanel), "disciplines");
+        mainPanel.add(new VueEpreuve(cardLayout, mainPanel), "epreuves");
+        mainPanel.add(new VueResultat(cardLayout, mainPanel), "resultats");
+        mainPanel.add(new VuePlanning(cardLayout, mainPanel), "planning");
         
         add(mainPanel);
         pack();

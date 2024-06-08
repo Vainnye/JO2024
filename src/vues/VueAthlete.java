@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-public class vuesAthlete extends JPanel {
+public class VueAthlete extends JPanel {
 
 	/**
 	 * 
@@ -26,7 +26,7 @@ public class vuesAthlete extends JPanel {
         return currentAthleteNumber++; // Retourne le numéro actuel et l'incrémente
     }
 
-    public vuesAthlete(CardLayout cardLayout, JPanel mainPanel) {
+    public VueAthlete(CardLayout cardLayout, JPanel mainPanel) {
 
         this.cardLayout = cardLayout;
         this.mainPanel = mainPanel;

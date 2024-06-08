@@ -10,7 +10,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import java.util.ArrayList;
 
-public class vuesPays extends JPanel {
+public class VuePays extends JPanel {
 	
 		 private CardLayout cardLayout;
 		 private JPanel mainPanel;
@@ -21,7 +21,7 @@ public class vuesPays extends JPanel {
 		        return currentPaysNumber++; // Retourne le numéro actuel et l'incrémente
 		 }
 	    
-	    public vuesPays(CardLayout cardLayout, JPanel mainPanel) {
+	    public VuePays(CardLayout cardLayout, JPanel mainPanel) {
 	    	this.cardLayout = cardLayout;
 	        this.mainPanel = mainPanel;
 	        this.currentPaysNumber = 0; // Initialisation du numéro des pays à 2
