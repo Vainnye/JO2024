@@ -1,9 +1,64 @@
 package modeles;
 
 import java.util.Arrays;
+import java.util.ArrayList;
 
-public class Equipe {
+
+public class Equipe implements Comparable<Equipe> {
 	
+	//----------------------------------
+	//	modèle des équipes
+	//----------------------------------
+	
+	// liste de toutes les équipes de l'app
+	private static ArrayList<Equipe> listeEquipes = new ArrayList<Equipe>(Arrays.asList(
+			// Equipes par défaut
+			new Equipe("Equipe de France", "masculin", "18-40 ans", Pays.getPays("FRA"), null),
+			new Equipe("Equipe USA", "feminin", "18-40 ans", Pays.getPays("USA"), null)
+		));
+	
+	
+	public static ArrayList<Equipe> getListCopy() { 
+		return new ArrayList<Equipe>(listeEquipes);
+	}
+	
+	
+	public static void add(Equipe e) {
+		if(e.nomEquipe.equals(""))
+			throw new IllegalArgumentException("Le nom ne dois pas être vide ");
+		else if(listeEquipes.isEmpty()) 
+			listeEquipes.add(e);
+		else if(!listeEquipes.contains(e))
+			listeEquipes.add(e);
+		else
+			throw new IllegalArgumentException("l'équipe '"+e.nomEquipe+"' existe déjà");
+		
+		listeEquipes.sort(null);
+	}
+	
+		
+	//--------------------------------------------------------------------
+	//	override de equals() et compareTo()
+	//	dans le but d'utiliser contains() et sort() sur listeEquipes
+	//--------------------------------------------------------------------
+	
+	@Override
+	public boolean equals(Object o) {
+	    if (this == o)
+	        return true;
+	    if (o == null)
+	    	return false;
+	    if (getClass() != o.getClass())
+	        return false;
+	    return nomEquipe.equals(((Equipe)o).nomEquipe);
+	}
+	
+	
+	@Override
+	public int compareTo(Equipe e) {
+		return this.nomEquipe.compareTo(e.nomEquipe);
+	}
+
 	//----------------------------------------------------
     //---------ATTRIBUTS------------------------------------
     //----------------------------------------------------
@@ -53,12 +108,6 @@ public class Equipe {
     //----------------------------------------------------
 	@Override
 	public String toString() {
-		return "Equipe [numEquipe=" + numEquipe + ", nom de'Equipe=" + nomEquipe + ", sexe des athletes= " + sexe + ", tranche d'Age des athletes="
-				+ trancheAge + ", nombre d'Athlete=" + nbAthlete + ", liste des Athletes=" + Arrays.toString(listeAthlete)
-				+ "]";
-	}
-	
-	public String toStringRd() {
         StringBuilder sb = new StringBuilder();
         sb.append(nomEquipe).append(": ");
         for (Athlete athlete : listeAthlete) {
@@ -84,8 +133,8 @@ public class Equipe {
 	}
 	
 	public void afficherAthlete() {
-		for(Athlete i:listeAthlete)
-			System.out.println(i.getPrenomAthlete()+i.getNomAthlete());
+		for(Athlete a : listeAthlete)
+			System.out.println(a.getPrenomAthlete()+a.getNomAthlete());
 	}
 	
 	public static void main(String[] args) {

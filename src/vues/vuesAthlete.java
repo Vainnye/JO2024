@@ -13,7 +13,11 @@ import javax.imageio.ImageIO;
 
 public class vuesAthlete extends JPanel {
 
-    private CardLayout cardLayout;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private CardLayout cardLayout;
     private JPanel mainPanel;
     private DefaultTableModel model;
     private int currentAthleteNumber ;
@@ -148,8 +152,8 @@ public class vuesAthlete extends JPanel {
         Equipe equipeDeFrance = new Equipe("Equipe de France", "masculin", "18-40 ans", france, null);
         Equipe equipeUSA = new Equipe("Equipe USA", "feminin", "18-40 ans", usa, null);
 
-        Athlete mbappe = new Athlete("Kylian", "Mbappe", "10/10/1998", equipeDeFrance, france);
-        Athlete james = new Athlete("LeBron", "James", "30/12/1984", equipeUSA, usa);
+        Athlete mbappe = new Athlete("Kylian", "Mbappe", "1998-10-10", equipeDeFrance, france);
+        Athlete james = new Athlete("LeBron", "James", "1984-12-30", equipeUSA, usa);
 
         
         // Ajout des pays à la table

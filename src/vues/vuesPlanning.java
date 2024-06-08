@@ -76,9 +76,9 @@ public class vuesPlanning extends JPanel {
 
         // Remplir le tableau avec des données factices pour illustration
         String[][] data = {
-                {"01/07/2024", "100m Sprint", "Équipe France", "France", "Athlète 1"},
-                {"02/07/2024", "Tir à l'arc", "Équipe USA", "USA", "Athlète 2"},
-                {"03/07/2024", "Natation", "Équipe Japon", "Japon", "Athlète 3"}
+                {"2024-07-01", "100m Sprint", "Équipe France", "France", "Athlète 1"},
+                {"2024-07-02", "Tir à l'arc", "Équipe USA", "USA", "Athlète 2"},
+                {"2024-07-03", "Natation", "Équipe Japon", "Japon", "Athlète 3"}
         };
         for (String[] row : data) {
             model.addRow(row);

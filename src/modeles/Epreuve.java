@@ -70,7 +70,7 @@ public class Epreuve {
         sb.append(", disciplineEpreuve=").append(disciplineEpreuve.getNomDiscipline());
         sb.append(", listeEquipe=");
         for (Equipe equipe : listeEquipe) {
-            sb.append(equipe.toStringRd()).append("/ ");
+            sb.append(equipe.toString()).append("/ ");
         }
         return sb.toString();
     }

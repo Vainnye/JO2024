@@ -19,10 +19,17 @@ public class vuesEquipe extends JPanel {
     private DefaultTableModel model;
     private int currentEquipeNumber ;
     private List<Equipe> equipeli;
+    private JButton addButton;
+    private JButton delButton;
+    
     
     public int getNextEquipeNumber() {
         return currentEquipeNumber++; // Retourne le numéro actuel et l'incrémente
     }
+    
+    public JButton getAddButton() {return addButton;}
+    public JButton getDelButton() {return delButton;}
+    
     
     public vuesEquipe(CardLayout cardLayout, JPanel mainPanel) {
     	
@@ -96,7 +103,7 @@ public class vuesEquipe extends JPanel {
         // --------------Création du bouton Ajouter --------------------------------
         //--------------------------------------------------------------------------
         
-        JButton addButton = new JButton("Ajouter Equipe");
+        addButton = new JButton("Ajouter Equipe");
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -159,7 +166,7 @@ public class vuesEquipe extends JPanel {
         // --------------Création du bouton Supprimer --------------------------------
         //--------------------------------------------------------------------------
         
-        JButton delButton = new JButton("Supprimer Équipe");
+        delButton = new JButton("Supprimer Équipe");
         delButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -190,58 +197,24 @@ public class vuesEquipe extends JPanel {
 
         equipePanel.add(delButton, BorderLayout.NORTH);
         mainContentPanel.add(equipePanel, BorderLayout.CENTER);
-        add(mainContentPanel, BorderLayout.CENTER);
-    
-
-        
-        
-        //--------------------------------------------------------------------------
-        // --------------Controleur---------------- --------------------------------
-        //--------------------------------------------------------------------------
-        
-        
-        Pays france = new Pays("France", "FR");
-        Pays usa = new Pays("USA", "US");
-
-        Equipe equipeDeFrance = new Equipe("Equipe de France", "masculin", "18-40 ans", france, null);
-        Equipe equipeUSA = new Equipe("Equipe USA", "feminin", "18-40 ans", usa, null);
-        
-        // Ajout des pays à la table
-        ArrayList<Equipe> equipe1 = new ArrayList<>();
-        equipe1.add(equipeDeFrance);
-        equipe1.add(equipeUSA);
-        
-        Equipe[] equipes = {equipeDeFrance, equipeUSA};
-
-        for (Equipe equipe : equipes) {
-        	model.addRow(new Object[]{
-            	equipe.getNumEquipe(),
-                equipe.getNomEquipe(),
-                equipe.getSexe(),
-                equipe.getTrancheAge(),
-                equipe.getPaysEquipe().getNomPays()
-            });
-        }
+        add(mainContentPanel, BorderLayout.CENTER);   
     }
-    
-    
-     // Méthode pour rafraîchir la vue après des modifications dans les données
-        public void rafraichirVue() {
-        	
-            
-            model.setRowCount(0); // Vider le modèle de tableau
-            for (Equipe equipeli : equipeli) {
-                model.addRow(new Object[]{
-                    equipeli.getNumEquipe(),
-                    equipeli.getNomEquipe(),
-                    equipeli.getSexe(),
-                    equipeli.getTrancheAge(),
-                    equipeli.getNbAthlete(),
-                    equipeli.getListeAthlete(),
-                    equipeli.getPaysEquipe().getNomPays(),
-                    equipeli.getDisciplineEquipe().getNomDiscipline()
-                }); 
-            }
+        
+ // Méthode pour rafraîchir la vue après des modifications dans les données
+    public void rafraichirVue() {    
+        model.setRowCount(0); // Vider le modèle de tableau
+        for (Equipe e : Equipe.getListCopy()) {
+            model.addRow(new Object[]{
+                e.getNumEquipe(),
+                e.getNomEquipe(),
+                e.getSexe(),
+                e.getTrancheAge(),
+                e.getNbAthlete(),
+                e.getListeAthlete(),
+                e.getPaysEquipe().getNomPays(),
+                e.getDisciplineEquipe().getNomDiscipline()
+            }); 
+        }
     }
 
 }

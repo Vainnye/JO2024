@@ -34,12 +34,6 @@ public class Discipline implements Comparable<Discipline> {
 	}
 
 	
-	// Exemple de données, vous devez remplacer par les données réelles
-	private static void loadTestSet() {
-		add(new Discipline("Athlétisme"));
-		add(new Discipline("Natation"));
-	}
-
 	
 	//--------------------------------------------------------------------
 	//	override de equals() et compareTo()

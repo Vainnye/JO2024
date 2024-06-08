@@ -1,6 +1,73 @@
 package modeles;
 
-public class Athlete {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Athlete implements Comparable<Athlete> {
+	
+	//-----------------------------------------------------------------------------------------
+	//	gestion de la liste de toutes les Athletes
+	//-----------------------------------------------------------------------------------------
+	
+	// liste de toutes les disciplines existantes
+	private static ArrayList<Athlete> listeAthletes = new ArrayList<Athlete>(Arrays.asList(
+			));
+
+	public static ArrayList<Athlete> getListCopy() { 
+		return new ArrayList<Athlete>(listeAthletes);
+	}
+	
+	public static void add(Athlete a) {
+		if(a.nomAthlete.equals(""))
+			throw new IllegalArgumentException("Le nom ne dois pas être vide ");
+		if(a.prenomAthlete.equals(""))
+			throw new IllegalArgumentException("Le prénom ne dois pas être vide ");
+		else if(listeAthletes.isEmpty()) 
+			listeAthletes.add(a);
+		else if(!listeAthletes.contains(a))
+			listeAthletes.add(a);
+		else
+			throw new IllegalArgumentException("l'athlète '"+a.prenomAthlete+a.nomAthlete.toUpperCase()+"' existe déjà");
+		
+		listeAthletes.sort(null);
+	}
+	
+	
+	
+	
+	//--------------------------------------------------------------------
+	//	override de equals() et compareTo()
+	//	dans le but d'utiliser contains() et sort() sur listeAthletes
+	//--------------------------------------------------------------------
+	
+	@Override
+	public boolean equals(Object o) {
+	    if (this == o)
+	        return true;
+	    if (o == null)
+	    	return false;
+	    if (getClass() != o.getClass())
+	        return false;
+	    return nomAthlete.equals(((Athlete)o).nomAthlete)
+	    		&& prenomAthlete.equals(((Athlete)o).prenomAthlete)
+	    		&& dateDeNaissance.equals(((Athlete)o).dateDeNaissance);
+	}
+	
+	
+	@Override
+	public int compareTo(Athlete a) {
+		if(this.nomAthlete != a.nomAthlete)
+			return this.nomAthlete.compareTo(a.nomAthlete);
+		else if(this.prenomAthlete != a.prenomAthlete)
+			return this.prenomAthlete.compareTo(a.prenomAthlete);
+		else if(this.dateDeNaissance != a.dateDeNaissance)
+			return this.dateDeNaissance.compareTo(a.dateDeNaissance);
+		else
+			return (this.numAthlete>a.numAthlete? 1 : (this.numAthlete==a.numAthlete? 0 : -1));
+	}
+
+
+	
 	
 	//----------------------------------------------------
     //---------ATTRIBUTS------------------------------------
@@ -49,6 +116,8 @@ public class Athlete {
 	public void setPaysAthlete(Pays paysAthlete) {
 		PaysAthlete = paysAthlete;
 	}
+	
+	
 	//----------------------------------------------------
     //---------CONSTRUCTEUR------------------------------------
     //----------------------------------------------------
